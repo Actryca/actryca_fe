@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "@/utils/theme";
-import { icons } from "lucide-react";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
