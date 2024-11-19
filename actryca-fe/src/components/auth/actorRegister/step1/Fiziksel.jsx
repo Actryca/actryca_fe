@@ -23,8 +23,8 @@ const placeholderStyles = {
 
 const Fiziksel = () => {
   const [aboutText, setAboutText] = useState("");
-  const [height, setHeight] = useState(); 
-  const [weight, setWeight] = useState(); 
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
   const [gender, setGender] = useState("");
   const [hairColor, setHairColor] = useState("");
   const [eyeColor, setEyeColor] = useState("");
@@ -35,10 +35,10 @@ const Fiziksel = () => {
 
   const handleSave = () => {
     const currentInfo = useAuthStore.getState().personalInfo;
-    const formattedGender = gender === "Kadın" ? "female" : "male"; 
-  
-    const formattedHeight = Math.round(parseFloat(height) * 100); 
-    const formattedWeight = parseInt(weight, 10); 
+    const formattedGender = gender === "Kadın" ? "female" : "male";
+
+    const formattedHeight = height ? Math.round(parseFloat(height) * 100) : null;
+    const formattedWeight = weight ? parseInt(weight, 10) : null;
     const physicalInfo = {
       height: formattedHeight,
       weight: formattedWeight,
@@ -47,14 +47,14 @@ const Fiziksel = () => {
       eye_color: eyeColor,
       about: aboutText,
     };
-  
+
     setPersonalInfo({
-      ...currentInfo, 
-      ...physicalInfo, 
+      ...currentInfo,
+      ...physicalInfo,
     });
   };
-  
-  
+
+
 
   const handleAboutMeOpen = () => {
     setIsAboutMeOpen(true);
@@ -69,11 +69,11 @@ const Fiziksel = () => {
 
 
   for (let i = 1.4; i <= 2.2; i += 0.01) {
-    heights.push(i.toFixed(2)); 
+    heights.push(i.toFixed(2));
   }
 
   for (let i = 35; i <= 150; i++) {
-    weights.push(i.toString()); 
+    weights.push(i.toString());
   }
 
   return (
@@ -119,7 +119,7 @@ const Fiziksel = () => {
               fullWidth
               variant="outlined"
               value={height}
-              onChange={(e) => setHeight(e.target.value)} 
+              onChange={(e) => setHeight(e.target.value)}
             >
               {heights.map((option, index) => (
                 <MenuItem key={index} value={option}>
@@ -137,7 +137,7 @@ const Fiziksel = () => {
               fullWidth
               variant="outlined"
               value={weight}
-              onChange={(e) => setWeight(e.target.value)} 
+              onChange={(e) => setWeight(e.target.value)}
             >
               {weights.map((option, index) => (
                 <MenuItem key={index} value={option}>

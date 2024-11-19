@@ -80,7 +80,7 @@ export const registerActor = async (actorData) => {
     }
 
     
-    const response = await axios.post(`${url}actors/register`, formData, {
+    const response = await axios.post(`${url}actors`, formData, {
       headers: {
         Authorization: `Bearer ${tokens}`,
         "Content-Type": "multipart/form-data",
