@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  frontend:
+    image: actryca/frontend:v1
+    ports:
+      - "3000:3000"  
+    networks:
+      - actryca-net
+
+networks:
+  actryca-net:
+    driver: bridge 
